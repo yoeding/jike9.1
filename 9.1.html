@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	
+function loadXMLDocAdd()
+{    
+	
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	{
+		
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			var json=JSON.parse(xmlhttp.responseText);
+			document.getElementById("p1").innerHTML="<img src ='http:b-ssl.duitang.com/uploads/item/201805/13/20180513125054_ilhjr.thumb.224_0.jpg'>";
+			document.getElementById("p2").innerHTML="<P>"+"姓名："+json.name+""+"</p>";
+			document.getElementById("p3").innerHTML="<P>"+"学号："+json.number+""+"</p>";
+		   	document.getElementById("p4").innerHTML="<P>"+"就读学校："+json.university+""+"</p>";
+		   	document.getElementById("p5").innerHTML="<P>"+"学院："+json.college+""+"</p>";
+		   	document.getElementById("p6").innerHTML="<P>"+"寝室号："+json.dorm+""+"</p>";
+		   	document.getElementById("p7").innerHTML="<P>"+"学习课程："+"</p>";
+		   	document.getElementById("p8").innerHTML="<li>"+json.subject[0].sname+""+"成绩："+json.subject[0].grade+""+"</li>";
+		   	document.getElementById("p9").innerHTML="<li>"+json.subject[1].sname+""+"成绩："+json.subject[1].grade+""+"</li>";
+		   	document.getElementById("p10").innerHTML="<li>"+json.subject[2].sname+""+"成绩："+json.subject[2].grade+""+"</li>";
+
+			  	
+			
+			
+		}
+	}
+		
+	xmlhttp.open("GET","http://mock-api.com/4jzA4LKk.mock/request",true);
+	xmlhttp.send();
+    }
+
+
+</script>
+</head>
+<body>
+	<button type="button" onclick="loadXMLDocAdd()">点击查看信息呀</button>
+	<div><p id="p1"></p></div>
+	<div>
+	<p id="p2"></p>
+    <p id="p3"></p>
+    <p id="p4"></p>
+    <p id="p5"></p>
+    <p id="p6"></p>
+    <p id="p7"></p>
+    <p id="p8"></p>
+    <p id="p9"></p>
+    <p id="p10"></p>
+    </div>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
